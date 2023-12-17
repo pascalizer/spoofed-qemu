@@ -47,9 +47,11 @@ function qemu_compile()
   sed -i "s/KVMKVMKVM\\\\0\\\\0\\\\0/$cpu_brand/"                                           $qemu_dir/target/i386/kvm/kvm.c
   sed -i "s/\"bochs\"/\"$qemu_motherboard_bios_vendor\"/"                                   $qemu_dir/block/bochs.c
 
-  ./configure --enable-spice --disable-werror
+  make clean
+  ./configure --enable-lto --enable-malloc=jemalloc --cpu=x86_64 --target-list=x86_64-linux-user --prefix=/usr/local --enable-spice
   make -j$(nproc)
 
   chown -R $SUDO_USER:$SUDO_USER $qemu_dir
+  make install
 }
 main
