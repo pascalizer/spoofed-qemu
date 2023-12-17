@@ -14,3 +14,5 @@ curl -O https://raw.githubusercontent.com/girlbossceo/spoofed-qemu/master/qemu-c
 chmod +x qemu-comp.sh
 ./qemu-comp.sh
 ```
+
+after installation, edit the `emulator` key in your libvirt XML file to `/usr/local/bin/qemu-system-x86_64` to use the new bin.
