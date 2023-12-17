@@ -1,7 +1,7 @@
 #!/bin/bash
 
 qemu_git="https://github.com/qemu/qemu.git"
-qemu_branch="v7.2.0"
+qemu_branch="v8.1.3"
 qemu_dir="$(pwd)/qemu-comp"
 
 function main()
@@ -28,8 +28,8 @@ function qemu_compile()
   qemu_cd_name="ASUS DRW 24F1ST"
   qemu_tablet_vendor="Wacom"
   qemu_tablet_name="Wacom Tablet"
-  cpu_brand=$(grep -m 1 'vendor_id' /proc/cpuinfo | cut -c13-)
-  cpu_speed=$(dmidecode | grep "Current Speed:" | cut -d" " -f3)
+  cpu_brand=$(sudo grep -m 1 'vendor_id' /proc/cpuinfo | cut -c13-)
+  cpu_speed=$(sudo dmidecode | grep "Current Speed:" | cut -d" " -f3)
 
   sed -i "s/\"BOCHS \"/\"$qemu_bios_string1\"/"                                             $qemu_dir/include/hw/acpi/aml-build.h
   sed -i "s/\"BXPC    \"/\"$qemu_bios_string2\"/"                                           $qemu_dir/include/hw/acpi/aml-build.h
