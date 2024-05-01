@@ -1,7 +1,7 @@
 #!/bin/bash
 
 qemu_git="https://github.com/qemu/qemu.git"
-qemu_branch="v8.1.3"
+qemu_branch="v9.0.0"
 qemu_dir="$(pwd)/qemu-comp"
 
 function main()
